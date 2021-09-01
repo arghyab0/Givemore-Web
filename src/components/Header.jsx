@@ -1,9 +1,12 @@
-//stylesheet
-import "./header-styles.scss";
-
 //components
 import { Navbar, Container, Nav, Form, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+//utils
+import { auth } from "../firebase/utils";
+
+//stylesheet
+import "./header-styles.scss";
 
 const Header = (props) => {
   return (
@@ -31,12 +34,27 @@ const Header = (props) => {
                 />
               </Form>
             </Nav>
-            <Nav>
-              <Nav.Link>Cart</Nav.Link>
-              <Nav.Link>
-                <Link to="/register">Register</Link>
-              </Nav.Link>
-            </Nav>
+
+            {props.currentUser && (
+              <Nav>
+                <Nav.Link>
+                  <Link to="/" onClick={() => auth.signOut()}>
+                    Logout
+                  </Link>
+                </Nav.Link>
+              </Nav>
+            )}
+
+            {!props.currentUser && (
+              <Nav>
+                <Nav.Link>
+                  <Link to="/register">Register</Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to="/login">Login</Link>
+                </Nav.Link>
+              </Nav>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
