@@ -1,20 +1,20 @@
 //components
 import React, { Component } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 //utils
-import { signInWithGoogle, auth } from "../firebase/utils";
+import { auth } from "../firebase/utils";
 
 //stylesheets
-import "./signin-styles.scss";
+import "./resetform-styles.scss";
 
 const initialState = {
   email: "",
-  password: "",
+  errors: [],
 };
 
-export class SignIn extends Component {
+export class ResetForm extends Component {
   constructor(props) {
     super(props);
 
@@ -32,41 +32,37 @@ export class SignIn extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
 
     try {
-      await auth.signInWithEmailAndPassword(email, password);
-      this.setState({
-        ...initialState,
-      });
+      const { email } = this.state;
+      const config = {
+        url: "http://localhost:3000/login",
+      };
+      await auth
+        .sendPasswordResetEmail(email, config)
+        .then(() => {
+          this.props.history.push("/login");
+        })
+        .catch(() => {
+          const err = "Email not found";
+          this.setState({
+            errors: err,
+          });
+        });
     } catch (err) {
       // console.log(err);
     }
   };
 
   render() {
-    const { email, password } = this.state;
-
+    const { email, errors } = this.state;
     return (
       <>
         <Container>
           <Row>
             <Col className="d-flex justify-content-center">
               <Form className="form" onSubmit={this.handleSubmit}>
-                <h3 className="text-center">Sign-In</h3>
-                <br />
-                <div className="text-center ">
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    onClick={signInWithGoogle}
-                  >
-                    Sign-in with Google
-                  </Button>
-                  <br />
-                  or
-                </div>
-
+                <h3 className="text-center">Forgot Password</h3>
                 <br />
 
                 <Form.Group as={Row} className="mb-3">
@@ -83,27 +79,20 @@ export class SignIn extends Component {
                     />
                   </Col>
                 </Form.Group>
-                <Form.Group as={Row} className="mb-3">
-                  <Form.Label column sm="4">
-                    Password
-                  </Form.Label>
-                  <Col sm="8">
-                    <Form.Control
-                      name="password"
-                      value={password}
-                      type="password"
-                      placeholder="password"
-                      onChange={this.handleChange}
-                    />
-                  </Col>
-                </Form.Group>
+
+                {errors.length > 0 && (
+                  <ul>
+                    {errors.map((err, index) => {
+                      return <li key={index}>{err}</li>;
+                    })}
+                  </ul>
+                )}
+
                 <div className="text-center ">
                   <Button type="submit" variant="primary">
-                    Sign-in
+                    Send recovery email
                   </Button>
                 </div>
-                <br />
-                <Link to="/reset">Reset Password</Link>
               </Form>
             </Col>
           </Row>
@@ -113,4 +102,4 @@ export class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(ResetForm);

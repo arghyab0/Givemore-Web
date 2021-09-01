@@ -8,6 +8,7 @@ import React, { Component } from "react";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Reset from "./pages/Reset";
 
 //utils
 import { auth, handleUserProfile } from "./firebase/utils";
@@ -70,6 +71,8 @@ export class App extends Component {
             ) : (
               <Route path="/login" component={Login} />
             )}
+
+            <Route exact path="/reset" component={Reset} />
           </Switch>
         </div>
         <Footer />

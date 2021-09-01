@@ -65,7 +65,7 @@ export class SignUp extends Component {
         <Container>
           <Row>
             <Col className="d-flex justify-content-center">
-              <Form className="signup-form" onSubmit={this.handleFormSubit}>
+              <Form className="form" onSubmit={this.handleFormSubit}>
                 <h3 className="text-center">Sign-Up</h3>
                 <br />
 
