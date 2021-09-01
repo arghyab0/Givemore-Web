@@ -39,6 +39,9 @@ const Header = (props) => {
             {props.currentUser && (
               <Nav>
                 <Nav.Link>
+                  <Link to="/dashboard">My Account</Link>
+                </Nav.Link>
+                <Nav.Link>
                   <Link to="/" onClick={() => auth.signOut()}>
                     Logout
                   </Link>

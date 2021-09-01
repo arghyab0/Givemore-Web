@@ -1,7 +1,7 @@
 //components
 import { useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 //utils
 import { signInWithGoogle, auth } from "../firebase/utils";
@@ -20,6 +20,8 @@ const SignIn = (props) => {
       await auth.signInWithEmailAndPassword(email, password);
       setEmail("");
       setPassword("");
+
+      props.history.push("/");
     } catch (err) {
       // console.log(err);
     }
@@ -91,4 +93,4 @@ const SignIn = (props) => {
   );
 };
 
-export default SignIn;
+export default withRouter(SignIn);

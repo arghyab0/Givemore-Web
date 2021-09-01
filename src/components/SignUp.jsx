@@ -1,6 +1,7 @@
 //components
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 //utils
 import { auth, handleUserProfile } from "../firebase/utils";
@@ -35,6 +36,8 @@ const SignUp = (props) => {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+
+      props.history.push("/");
     } catch (err) {
       console.log(err);
     }
@@ -130,4 +133,4 @@ const SignUp = (props) => {
   );
 };
 
-export default SignUp;
+export default withRouter(SignUp);

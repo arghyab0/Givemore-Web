@@ -1,5 +1,5 @@
 //components
-import { Route, Switch, Redirect } from "react-router";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -9,6 +9,10 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Reset from "./pages/Reset";
+import Dashboard from "./pages/Dashboard";
+
+//hoc
+import WithAuth from "./hoc/WithAuth";
 
 //redux stuff
 import { connect } from "react-redux";
@@ -50,19 +54,21 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={Home} />
 
-          {currentUser ? (
-            <Redirect to="/" />
-          ) : (
-            <Route path="/register" component={Register} />
-          )}
+          <Route path="/register" component={Register} />
 
-          {currentUser ? (
-            <Redirect to="/" />
-          ) : (
-            <Route path="/login" component={Login} />
-          )}
+          <Route path="/login" component={Login} />
 
           <Route exact path="/reset" component={Reset} />
+
+          <Route
+            exact
+            path="/dashboard"
+            render={() => (
+              <WithAuth>
+                <Dashboard />
+              </WithAuth>
+            )}
+          />
         </Switch>
       </div>
       <Footer />
