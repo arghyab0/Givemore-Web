@@ -58,7 +58,12 @@ export class App extends Component {
         <div className="main">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/register" component={Register} />
+
+            {currentUser ? (
+              <Redirect to="/" />
+            ) : (
+              <Route path="/register" component={Register} />
+            )}
 
             {currentUser ? (
               <Redirect to="/" />
