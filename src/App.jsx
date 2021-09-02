@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Reset from "./pages/Reset";
 import Dashboard from "./pages/Dashboard";
+import Donate from "./pages/Donate";
 
 //hoc
 import WithAuth from "./hoc/WithAuth";
@@ -39,7 +40,17 @@ const App = (props) => {
 
           <Route path="/login" component={Login} />
 
-          <Route exact path="/reset" component={Reset} />
+          <Route path="/reset" component={Reset} />
+
+          <Route
+            exact
+            path="/donate"
+            render={() => (
+              <WithAuth>
+                <Donate />
+              </WithAuth>
+            )}
+          />
 
           <Route
             exact
