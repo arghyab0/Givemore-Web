@@ -3,10 +3,10 @@ import { Navbar, Container, Nav, Form, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //redux stuff
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-//utils
-import { auth } from "../firebase/utils";
+//redux action
+import { signOutUserStart } from "../redux/user.action";
 
 //stylesheet
 import "./header-styles.scss";
@@ -16,7 +16,12 @@ const mapState = ({ user }) => ({
 });
 
 const Header = (props) => {
+  const dispatch = useDispatch();
   const { currentUser } = useSelector(mapState);
+
+  const signOut = () => {
+    dispatch(signOutUserStart());
+  };
 
   return (
     <>
@@ -50,7 +55,7 @@ const Header = (props) => {
                   <Link to="/dashboard">My Account</Link>
                 </Nav.Link>
                 <Nav.Link>
-                  <Link to="/" onClick={() => auth.signOut()}>
+                  <Link to="/" onClick={() => signOut()}>
                     Logout
                   </Link>
                 </Nav.Link>

@@ -5,34 +5,33 @@ import { Link, withRouter } from "react-router-dom";
 
 //redux stuff
 import { useDispatch, useSelector } from "react-redux";
-import { signInUser, signInWithGoogle, resetAuth } from "../redux/user.action";
+import { emailSignInStart, signInWithGoogle } from "../redux/user.action";
 
 //stylesheets
 import "./signin-styles.scss";
 
 const mapState = ({ user }) => ({
-  signInSuccess: user.signInSuccess,
+  currentUser: user.currentUser,
 });
 
 const SignIn = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { signInSuccess } = useSelector(mapState);
+  const { currentUser } = useSelector(mapState);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (signInSuccess) {
+    if (currentUser) {
       setEmail("");
       setPassword("");
-      dispatch(resetAuth());
       props.history.push("/");
     }
-  }, [signInSuccess]);
+  }, [currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signInUser({ email, password }));
+    dispatch(emailSignInStart({ email, password }));
   };
 
   const handleGoogleSignIn = (e) => {

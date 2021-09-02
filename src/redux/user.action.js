@@ -1,28 +1,40 @@
 import userTypes from "./user.types";
 
 //firebase utils
-import { auth } from "../firebase/utils";
-import { handleUserProfile } from "../firebase/utils";
-import { GoogleProvider } from "../firebase/utils";
+import { auth, handleUserProfile, GoogleProvider } from "../firebase/utils";
+
+export const emailSignInStart = (userCredentials) => ({
+  type: userTypes.EMAIL_SIGN_IN_START,
+  payload: userCredentials,
+});
+
+export const signInSucces = (user) => ({
+  type: userTypes.SIGN_IN_SUCCESS,
+  payload: user,
+});
+
+export const checkUserSession = () => ({
+  type: userTypes.CHECK_USER_SESSION,
+});
+
+export const signOutUserStart = () => ({
+  type: userTypes.SIGN_OUT_USER_START,
+});
+
+export const signOutUserSuccess = () => ({
+  type: userTypes.SIGN_OUT_USER_SUCCESS,
+});
+
+//SDSAC
+//SDSAC
+//SDSAC
+//SDSAC
+//SDSAC
 
 export const setCurrentUser = (user) => ({
   type: userTypes.SET_CURRRENT_USER,
   payload: user,
 });
-
-export const signInUser =
-  ({ email, password }) =>
-  async (dispatch) => {
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      dispatch({
-        type: userTypes.SIGN_IN_SUCCESS,
-        payload: true,
-      });
-    } catch (err) {
-      // console.log(err);
-    }
-  };
 
 export const signInWithGoogle = () => async (dispatch) => {
   try {
