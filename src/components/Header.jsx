@@ -1,7 +1,9 @@
 //components
 import { Navbar, Container, Nav, Form, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+
+//redux stuff
+import { useSelector } from "react-redux";
 
 //utils
 import { auth } from "../firebase/utils";
@@ -9,7 +11,13 @@ import { auth } from "../firebase/utils";
 //stylesheet
 import "./header-styles.scss";
 
+const mapState = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const Header = (props) => {
+  const { currentUser } = useSelector(mapState);
+
   return (
     <>
       <Navbar
@@ -36,7 +44,7 @@ const Header = (props) => {
               </Form>
             </Nav>
 
-            {props.currentUser && (
+            {currentUser && (
               <Nav>
                 <Nav.Link>
                   <Link to="/dashboard">My Account</Link>
@@ -49,7 +57,7 @@ const Header = (props) => {
               </Nav>
             )}
 
-            {!props.currentUser && (
+            {!currentUser && (
               <Nav>
                 <Nav.Link>
                   <Link to="/register">Register</Link>
@@ -66,8 +74,4 @@ const Header = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
-});
-
-export default connect(mapStateToProps, null)(Header);
+export default Header;
