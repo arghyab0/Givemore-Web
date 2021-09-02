@@ -1,11 +1,11 @@
 //components
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 //redux stuff
 import { useDispatch, useSelector } from "react-redux";
-import { emailSignInStart, signInWithGoogle } from "../redux/user.action";
+import { emailSignInStart, googleSignInStart } from "../redux/user.action";
 
 //stylesheets
 import "./signin-styles.scss";
@@ -21,11 +21,13 @@ const SignIn = (props) => {
   const { currentUser } = useSelector(mapState);
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
   useEffect(() => {
     if (currentUser) {
       setEmail("");
       setPassword("");
-      props.history.push("/");
+      history.push("/");
     }
   }, [currentUser]);
 
@@ -35,7 +37,7 @@ const SignIn = (props) => {
   };
 
   const handleGoogleSignIn = (e) => {
-    dispatch(signInWithGoogle());
+    dispatch(googleSignInStart());
   };
 
   return (
@@ -104,4 +106,4 @@ const SignIn = (props) => {
   );
 };
 
-export default withRouter(SignIn);
+export default SignIn;
