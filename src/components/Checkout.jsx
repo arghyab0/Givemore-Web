@@ -1,5 +1,6 @@
 //components
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 
 //redux stuff
@@ -27,7 +28,9 @@ const Checkout = () => {
             return <CartProduct {...item} key={item.documentID} />;
           })}
 
-          <Button>Continue browsing</Button>
+          <Link to="/store">
+            <Button>Continue browsing</Button>
+          </Link>
           <Button>Checkout</Button>
         </>
       ) : (
