@@ -1,8 +1,9 @@
 //components
 import { useEffect } from "react";
 import { Row, Col, Container, Form } from "react-bootstrap";
-import Product from "./Product";
 import { useHistory, useParams } from "react-router";
+import Product from "./Product";
+import LoadMore from "./LoadMore";
 
 //redux stuff
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +18,7 @@ const mapState = ({ productsData }) => ({
 
 const ProductsColl = (props) => {
   const { products } = useSelector(mapState);
+  const { data, queryDoc, isLastPage } = products;
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -32,8 +34,18 @@ const ProductsColl = (props) => {
     history.push(`/store/${filter}`);
   };
 
-  if (!Array.isArray(products)) return null;
-  if (products.length < 1) {
+  const handleLoadMore = () => {
+    dispatch(
+      fetchProductsStart({
+        filterType,
+        startAfterDoc: queryDoc,
+        persistProducts: data,
+      })
+    );
+  };
+
+  if (!Array.isArray(data)) return null;
+  if (data.length < 1) {
     return (
       <>
         <h3>No products found</h3>
@@ -62,7 +74,7 @@ const ProductsColl = (props) => {
       </Container>
       <Container>
         <Row sm={1} lg={4} className="g-4">
-          {products.map((item, index) => {
+          {data.map((item, index) => {
             const {
               productTitle,
               productThumbnail,
@@ -74,13 +86,22 @@ const ProductsColl = (props) => {
               return null;
 
             return (
-              <Col>
-                <Product {...item} key={documentID} />
+              <Col key={documentID}>
+                <Product {...item} />
               </Col>
             );
           })}
         </Row>
       </Container>
+      {!isLastPage && (
+        <Container>
+          <Row className="justify-content-center">
+            <Col sm="2">
+              <LoadMore onLoadMore={handleLoadMore} />
+            </Col>
+          </Row>
+        </Container>
+      )}
     </>
   );
 };
