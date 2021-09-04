@@ -1,5 +1,6 @@
 //components
-import { Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 //redux stuff
 
@@ -18,14 +19,26 @@ const Product = ({
   return (
     <>
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={productThumbnail} alt={productTitle} />
+        <Link to={`/product/${documentID}`}>
+          <Card.Img variant="top" src={productThumbnail} alt={productTitle} />
+        </Link>
         <Card.Body>
-          <Card.Title>{productTitle}</Card.Title>
-          <Card.Text>
-            {productDesc} <br />
-            {productCategory}
-          </Card.Text>
-          <Button variant="primary">Add to Cart</Button>
+          <Card.Title>
+            <Link to={`/product/${documentID}`}>{productTitle}</Link>
+          </Card.Title>
+          <Card.Text>{productCategory}</Card.Text>
+          <Container>
+            <Row>
+              <Col>
+                <Link to={`/product/${documentID}`}>
+                  <Button variant="primary">Details</Button>
+                </Link>
+              </Col>
+              <Col>
+                <Button variant="primary">Cart</Button>
+              </Col>
+            </Row>
+          </Container>
         </Card.Body>
       </Card>
     </>

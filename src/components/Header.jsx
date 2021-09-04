@@ -56,6 +56,9 @@ const Header = (props) => {
                   <Link to="/donate">Donate</Link>
                 </Nav.Link>
                 <Nav.Link>
+                  <Link to="/store">Store</Link>
+                </Nav.Link>
+                <Nav.Link>
                   <Link to="/dashboard">My Account</Link>
                 </Nav.Link>
                 <Nav.Link>

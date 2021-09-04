@@ -73,7 +73,7 @@ const ProductsColl = (props) => {
         </Row>
       </Container>
       <Container>
-        <Row sm={1} lg={4} className="g-4">
+        <Row md="2" lg="4" className="g-4">
           {data.map((item, index) => {
             const {
               productTitle,

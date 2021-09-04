@@ -12,6 +12,7 @@ import Reset from "./pages/Reset";
 import Dashboard from "./pages/Dashboard";
 import Donate from "./pages/Donate";
 import Store from "./pages/Store";
+import ProductDetails from "./pages/ProductDetails";
 
 //hoc
 import WithAuth from "./hoc/WithAuth";
@@ -54,6 +55,8 @@ const App = (props) => {
 
           <Route exact path="/store" component={Store} />
           <Route path="/store/:filterType" component={Store} />
+
+          <Route path="/product/:productID" component={ProductDetails} />
 
           <Route
             path="/dashboard"

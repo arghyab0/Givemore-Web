@@ -98,7 +98,7 @@ const AddModal = (props) => {
               <Col sm="6">
                 <Form.Control
                   as="textarea"
-                  rows={3}
+                  rows={6}
                   name="productDesc"
                   value={productDesc}
                   type="text"
