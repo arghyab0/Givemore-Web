@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductStart, setProduct } from "../redux/product.action";
+import { addProduct } from "../redux/cart.action";
 
 //stylesheets
 import "./productdetails-styles.scss";
@@ -35,6 +36,11 @@ const ProductDetails = () => {
     };
   }, []);
 
+  const handleAddToCart = (product) => {
+    if (!product) return;
+    dispatch(addProduct(product));
+  };
+
   return (
     <>
       <img src={productThumbnail} alt="product" />
@@ -42,7 +48,9 @@ const ProductDetails = () => {
       <h3>{productDesc}</h3>
       <h3>{productCategory}</h3>
       <p>{productID}</p>
-      <Button variant="primary">Add to Cart</Button>
+      <Button variant="primary" onClick={() => handleAddToCart(product)}>
+        Add to Cart
+      </Button>
     </>
   );
 };

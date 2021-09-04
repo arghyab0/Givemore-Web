@@ -3,17 +3,28 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //redux stuff
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/cart.action";
 
 //stylesheet
 import "./product-styles.scss";
 
-const Product = ({
-  productTitle,
-  productThumbnail,
-  productDesc,
-  productCategory,
-  documentID,
-}) => {
+const Product = (product) => {
+  const {
+    productTitle,
+    productThumbnail,
+    productDesc,
+    productCategory,
+    documentID,
+  } = product;
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    if (!product) return;
+    dispatch(addProduct(product));
+  };
+
   if (!productTitle || !productThumbnail || !productCategory) return null;
 
   return (
@@ -35,7 +46,12 @@ const Product = ({
                 </Link>
               </Col>
               <Col>
-                <Button variant="primary">Cart</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Cart
+                </Button>
               </Col>
             </Row>
           </Container>

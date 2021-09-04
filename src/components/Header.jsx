@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
-
-//redux action
 import { signOutUserStart } from "../redux/user.action";
+import { selectCartItemsCount } from "../redux/cart.selectors";
 
 //stylesheet
 import "./header-styles.scss";
 
-const mapState = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapState = (state) => ({
+  currentUser: state.user.currentUser,
+  cartItemsNum: selectCartItemsCount(state),
 });
 
 const Header = (props) => {
+  const { currentUser, cartItemsNum } = useSelector(mapState);
   const dispatch = useDispatch();
-  const { currentUser } = useSelector(mapState);
 
   const signOut = () => {
     dispatch(signOutUserStart());
@@ -60,6 +60,9 @@ const Header = (props) => {
                 </Nav.Link>
                 <Nav.Link>
                   <Link to="/dashboard">My Account</Link>
+                </Nav.Link>
+                <Nav.Link>
+                  <Link to="/cart">Cart ({cartItemsNum})</Link>
                 </Nav.Link>
                 <Nav.Link>
                   <Link to="/" onClick={() => signOut()}>
