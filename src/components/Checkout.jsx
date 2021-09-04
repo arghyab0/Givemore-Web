@@ -27,8 +27,6 @@ const Checkout = () => {
             return <CartProduct {...item} key={item.documentID} />;
           })}
 
-          <p>Total: </p>
-
           <Button>Continue browsing</Button>
           <Button>Checkout</Button>
         </>

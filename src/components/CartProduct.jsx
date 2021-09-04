@@ -3,7 +3,11 @@ import { Button } from "react-bootstrap";
 
 //redux stuff
 import { useDispatch } from "react-redux";
-import { removeCartItem } from "../redux/cart.action";
+import {
+  removeCartItem,
+  addProduct,
+  reduceCartItem,
+} from "../redux/cart.action";
 
 //stylesheets
 import "./cartproduct-styles.scss";
@@ -13,6 +17,14 @@ const CartProduct = (product) => {
 
   const handleRemoveCartItem = (documentID) => {
     dispatch(removeCartItem({ documentID }));
+  };
+
+  const handleAddProduct = (product) => {
+    dispatch(addProduct(product));
+  };
+
+  const handleReduceProduct = (product) => {
+    dispatch(reduceCartItem(product));
   };
 
   const {
@@ -27,8 +39,10 @@ const CartProduct = (product) => {
   return (
     <>
       <p>
-        {productTitle}
-        {quantity}
+        {productTitle}-------
+        {quantity}--------
+        <Button onClick={() => handleReduceProduct(product)}> {`<`} </Button>
+        <Button onClick={() => handleAddProduct(product)}> {`>`} </Button>
         <Button onClick={() => handleRemoveCartItem(documentID)}> X </Button>
       </p>
     </>
