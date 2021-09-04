@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Reset from "./pages/Reset";
 import Dashboard from "./pages/Dashboard";
 import Donate from "./pages/Donate";
+import Store from "./pages/Store";
 
 //hoc
 import WithAuth from "./hoc/WithAuth";
@@ -43,7 +44,6 @@ const App = (props) => {
           <Route path="/reset" component={Reset} />
 
           <Route
-            exact
             path="/donate"
             render={() => (
               <WithAuth>
@@ -52,8 +52,10 @@ const App = (props) => {
             )}
           />
 
+          <Route exact path="/store" component={Store} />
+          <Route path="/store/:filterType" component={Store} />
+
           <Route
-            exact
             path="/dashboard"
             render={() => (
               <WithAuth>

@@ -30,6 +30,7 @@ const Header = (props) => {
         expand="lg"
         bg="light"
         variant="light"
+        sticky="top"
         className="navbar"
       >
         <Container>
