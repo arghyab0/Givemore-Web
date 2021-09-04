@@ -1,6 +1,6 @@
 //components
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 //redux stuff
 import { useDispatch } from "react-redux";
@@ -19,10 +19,12 @@ const Product = (product) => {
   } = product;
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleAddToCart = (product) => {
     if (!product) return;
     dispatch(addProduct(product));
+    history.push("/cart");
   };
 
   if (!productTitle || !productThumbnail || !productCategory) return null;

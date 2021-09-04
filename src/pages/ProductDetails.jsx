@@ -1,7 +1,7 @@
 //components
 import { useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
@@ -27,6 +27,7 @@ const ProductDetails = () => {
 
   const dispatch = useDispatch();
   const { productID } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(fetchProductStart(productID));
@@ -39,6 +40,7 @@ const ProductDetails = () => {
   const handleAddToCart = (product) => {
     if (!product) return;
     dispatch(addProduct(product));
+    history.push("/cart");
   };
 
   return (
