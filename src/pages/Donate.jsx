@@ -23,7 +23,7 @@ const Donate = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const { currentUser, products } = useSelector(mapState);
   const { data, queryDoc, isLastPage } = products;
-  const { displayName } = currentUser;
+  const { displayName, userID } = currentUser;
 
   const dispatch = useDispatch();
 
@@ -55,22 +55,25 @@ const Donate = (props) => {
               productThumbnail,
               productDesc,
               productCategory,
+              productUserUID,
               documentID,
             } = item;
 
-            return (
-              <li key={documentID}>
-                {productTitle} {productThumbnail} {productDesc}{" "}
-                {productCategory}
-                <Button
-                  onClick={() => dispatch(deleteProductStart(documentID))}
-                >
-                  Delete
-                </Button>
-                <br />
-                <br />
-              </li>
-            );
+            if (userID === productUserUID) {
+              return (
+                <li key={documentID}>
+                  {productTitle} {productThumbnail} {productDesc}{" "}
+                  {productCategory}
+                  <Button
+                    onClick={() => dispatch(deleteProductStart(documentID))}
+                  >
+                    Delete
+                  </Button>
+                  <br />
+                  <br />
+                </li>
+              );
+            }
           })}
       </ul>
       {!isLastPage && <LoadMore onLoadMore={handleLoadMore} />}
