@@ -31,7 +31,9 @@ const Checkout = () => {
           <Link to="/store">
             <Button>Continue browsing</Button>
           </Link>
-          <Button>Checkout</Button>
+          <Link to="/shipping">
+            <Button>Checkout</Button>
+          </Link>
         </>
       ) : (
         <p>No items in cart</p>

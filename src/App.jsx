@@ -14,6 +14,7 @@ import Donate from "./pages/Donate";
 import Store from "./pages/Store";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import Shipping from "./pages/Shipping";
 
 //hoc
 import WithAuth from "./hoc/WithAuth";
@@ -64,6 +65,15 @@ const App = (props) => {
             render={() => (
               <WithAuth>
                 <Cart />
+              </WithAuth>
+            )}
+          />
+
+          <Route
+            path="/shipping"
+            render={() => (
+              <WithAuth>
+                <Shipping />
               </WithAuth>
             )}
           />
