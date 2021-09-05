@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Reset from "./pages/Reset";
-import Dashboard from "./pages/Dashboard";
 import Donate from "./pages/Donate";
 import Store from "./pages/Store";
 import ProductDetails from "./pages/ProductDetails";
@@ -24,7 +23,8 @@ import { useDispatch } from "react-redux";
 import { checkUserSession } from "./redux/user.action";
 
 //stylesheets
-import "./default.scss";
+import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = (props) => {
   const dispatch = useDispatch();
@@ -74,15 +74,6 @@ const App = (props) => {
             render={() => (
               <WithAuth>
                 <Shipping />
-              </WithAuth>
-            )}
-          />
-
-          <Route
-            path="/dashboard"
-            render={() => (
-              <WithAuth>
-                <Dashboard />
               </WithAuth>
             )}
           />

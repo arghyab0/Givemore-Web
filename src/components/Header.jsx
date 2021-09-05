@@ -1,5 +1,5 @@
 //components
-import { Navbar, Container, Nav, Form, FormControl } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //redux stuff
@@ -8,7 +8,7 @@ import { signOutUserStart } from "../redux/user.action";
 import { selectCartItemsCount } from "../redux/cart.selectors";
 
 //stylesheet
-import "./header-styles.scss";
+// import "./header-styles.scss";
 
 const mapState = (state) => ({
   currentUser: state.user.currentUser,
@@ -27,58 +27,46 @@ const Header = (props) => {
     <>
       <Navbar
         collapseOnSelect
-        expand="lg"
-        bg="light"
+        expand="md"
         variant="light"
         sticky="top"
-        className="navbar"
+        className="navbar py-3"
       >
         <Container>
-          <Navbar.Brand>
-            <Link to="/">Givemore</Link>
-          </Navbar.Brand>
+          <Navbar.Brand href="/">Givemore</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="mr-2"
-                  aria-label="Search"
-                />
-              </Form>
-            </Nav>
+            <Nav className="me-auto"></Nav>
 
             {currentUser && (
               <Nav>
-                <Nav.Link>
-                  <Link to="/donate">Donate</Link>
+                <Nav.Link className="header-link" href="/donate">
+                  Donate
                 </Nav.Link>
-                <Nav.Link>
-                  <Link to="/store">Store</Link>
+                <Nav.Link className="header-link" href="/store">
+                  Store
                 </Nav.Link>
-                <Nav.Link>
-                  <Link to="/dashboard">My Account</Link>
+                <Nav.Link className="header-link" href="/cart">
+                  {" "}
+                  Cart ({cartItemsNum})
                 </Nav.Link>
-                <Nav.Link>
-                  <Link to="/cart">Cart ({cartItemsNum})</Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="/" onClick={() => signOut()}>
-                    Logout
-                  </Link>
+                <Nav.Link
+                  className="header-link"
+                  href="/"
+                  onClick={() => signOut()}
+                >
+                  Logout
                 </Nav.Link>
               </Nav>
             )}
 
             {!currentUser && (
               <Nav>
-                <Nav.Link>
-                  <Link to="/register">Register</Link>
+                <Nav.Link className="header-link" href="/register">
+                  Register
                 </Nav.Link>
-                <Nav.Link>
-                  <Link to="/login">Login</Link>
+                <Nav.Link className="header-link" href="/login">
+                  Login
                 </Nav.Link>
               </Nav>
             )}
