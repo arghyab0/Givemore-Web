@@ -1,6 +1,5 @@
 //components
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 //redux stuff
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +7,7 @@ import { signOutUserStart } from "../redux/user.action";
 import { selectCartItemsCount } from "../redux/cart.selectors";
 
 //stylesheet
-// import "./header-styles.scss";
+import "./header-styles.scss";
 
 const mapState = (state) => ({
   currentUser: state.user.currentUser,
@@ -28,6 +27,7 @@ const Header = (props) => {
       <Navbar
         collapseOnSelect
         expand="md"
+        bg="light"
         variant="light"
         sticky="top"
         className="navbar py-3"
