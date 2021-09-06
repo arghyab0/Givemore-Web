@@ -1,3 +1,20 @@
 .signup-form {
-  border: 1px black solid;
+  padding: 4%;
+  margin: 8%;
+
+  .signup-header {
+    font-weight: 900;
+  }
+
+  .email-signup {
+    border: 2px #46760a solid;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .signup-errors {
+    list-style-type: none;
+    color: #c7522d;
+  }
 }
