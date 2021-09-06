@@ -78,7 +78,7 @@ const Header = (props) => {
 
           {!currentUser && (
             <Nav>
-              <Nav.Link className="nav-link" href="/login">
+              <Nav.Link className="nav-link-login nav-link" href="/login">
                 <BiLogIn className="nav-icons" /> Login
               </Nav.Link>
             </Nav>
