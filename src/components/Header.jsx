@@ -8,6 +8,13 @@ import { selectCartItemsCount } from "../redux/cart.selectors";
 
 //stylesheet
 import "./header-styles.scss";
+import {
+  BiDonateHeart,
+  BiStore,
+  BiCartAlt,
+  BiLogOut,
+  BiLogIn,
+} from "react-icons/bi";
 
 const mapState = (state) => ({
   currentUser: state.user.currentUser,
@@ -26,11 +33,11 @@ const Header = (props) => {
     <>
       <Navbar
         collapseOnSelect
+        className="navbar py-3"
         expand="md"
         bg="light"
         variant="light"
         sticky="top"
-        className="navbar py-3"
       >
         <Container>
           <Navbar.Brand href="/">Givemore</Navbar.Brand>
@@ -40,32 +47,32 @@ const Header = (props) => {
 
             {currentUser && (
               <Nav>
-                <Nav.Link className="header-link" href="/donate">
-                  Donate
+                <Nav.Link className="nav-link" href="/donate">
+                  <BiDonateHeart className="nav-icons" /> Donate
                 </Nav.Link>
-                <Nav.Link className="header-link" href="/store">
-                  Store
+                <Nav.Link className="nav-link" href="/store">
+                  <BiStore className="nav-icons" /> Store
                 </Nav.Link>
-                <Nav.Link className="header-link" href="/cart">
-                  {" "}
-                  Cart ({cartItemsNum})
+                <Nav.Link className="nav-link" href="/cart">
+                  <BiCartAlt className="nav-icons" /> Cart ({cartItemsNum})
                 </Nav.Link>
                 <Nav.Link
-                  className="header-link"
+                  className="nav-link"
                   href="/"
                   onClick={() => signOut()}
                 >
-                  Logout
+                  <BiLogOut className="nav-icons" /> Logout
                 </Nav.Link>
               </Nav>
             )}
 
             {!currentUser && (
               <Nav>
-                <Nav.Link className="header-link" href="/register">
+                <Nav.Link className="nav-link" href="/register">
                   Register
                 </Nav.Link>
-                <Nav.Link className="header-link" href="/login">
+                <Nav.Link className="nav-link" href="/login">
+                  <BiLogIn className="nav-icons" />
                   Login
                 </Nav.Link>
               </Nav>

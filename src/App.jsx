@@ -23,8 +23,8 @@ import { useDispatch } from "react-redux";
 import { checkUserSession } from "./redux/user.action";
 
 //stylesheets
-import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.scss";
 
 const App = (props) => {
   const dispatch = useDispatch();
