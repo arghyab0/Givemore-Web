@@ -8,17 +8,12 @@ import { addProduct } from "../redux/cart.action";
 
 //stylesheet
 import "./product-styles.scss";
-import { BiHeart } from "react-icons/bi";
+import { BiCartAlt } from "react-icons/bi";
 import { TiTags } from "react-icons/ti";
 
 const Product = (product) => {
-  const {
-    productTitle,
-    productThumbnail,
-    productDesc,
-    productCategory,
-    documentID,
-  } = product;
+  const { productTitle, productThumbnail, productCategory, documentID } =
+    product;
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -67,7 +62,7 @@ const Product = (product) => {
                         variant="primary"
                         onClick={() => handleAddToCart(product)}
                       >
-                        <BiHeart /> Cart
+                        <BiCartAlt /> Cart
                       </Button>
                     </Col>
                     <Col>

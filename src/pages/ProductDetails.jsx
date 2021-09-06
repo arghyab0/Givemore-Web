@@ -1,6 +1,6 @@
 //components
 import { useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { useParams, useHistory } from "react-router";
 
 //redux stuff
@@ -10,6 +10,8 @@ import { addProduct } from "../redux/cart.action";
 
 //stylesheets
 import "./productdetails-styles.scss";
+import { MdAddShoppingCart } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const mapState = (state) => ({
   product: state.productsData.product,
@@ -17,13 +19,8 @@ const mapState = (state) => ({
 
 const ProductDetails = () => {
   const { product } = useSelector(mapState);
-  const {
-    productTitle,
-    productThumbnail,
-    productDesc,
-    productCategory,
-    documentID,
-  } = product;
+  const { productTitle, productThumbnail, productDesc, productCategory } =
+    product;
 
   const dispatch = useDispatch();
   const { productID } = useParams();
@@ -45,14 +42,55 @@ const ProductDetails = () => {
 
   return (
     <>
-      <img src={productThumbnail} alt="product" />
-      <h2>{productTitle}</h2>
-      <h3>{productDesc}</h3>
-      <h3>{productCategory}</h3>
-      <p>{productID}</p>
-      <Button variant="primary" onClick={() => handleAddToCart(product)}>
-        Add to Cart
-      </Button>
+      <Container>
+        <Row className="mb-5"></Row>
+        <Row className="mb-5">
+          <Col>
+            <h1 className="details-header">Listing details</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col md="6">
+            <Image
+              src={productThumbnail}
+              alt={productTitle}
+              style={{ borderRadius: "16px" }}
+              fluid
+            />
+          </Col>
+          <Col></Col>
+          <Col md="5">
+            <Container>
+              <Row className="mb-5">
+                <h2 className="details-title">{productTitle}</h2>
+              </Row>
+              <Row className="mb-5">
+                <p>{productDesc}</p>
+              </Row>
+              <Row className="mb-5">
+                <p>
+                  <span className="details-sub">Listing ID:</span> &ensp;{" "}
+                  {productID}
+                  <br />
+                  <span className="details-sub">Category:</span> &ensp;
+                  <Link to={`/store/${productCategory}`}>
+                    {productCategory}
+                  </Link>
+                </p>
+              </Row>
+              <Row className="mb-5 justify-content-center">
+                <Button
+                  id="details-cart"
+                  variant="primary"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  <MdAddShoppingCart style={{ fontSize: "19px" }} /> Add to Cart
+                </Button>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

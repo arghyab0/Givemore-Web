@@ -1,6 +1,6 @@
 //components
 import { useEffect } from "react";
-import { Row, Col, Container, Form, InputGroup } from "react-bootstrap";
+import { Row, Col, Container, Form } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import Product from "./Product";
 import LoadMore from "./LoadMore";
@@ -48,7 +48,16 @@ const ProductsColl = (props) => {
   if (data.length < 1) {
     return (
       <>
-        <h3>No products found</h3>
+        <Container>
+          <Row className="mb-5"></Row>
+          <Row className="mb-5">
+            <Col>
+              <h1 className="store-header">Uh-oh, no listings found :(</h1>
+              <br />
+              <p>Sorry, we couldn't find what you are looking for.</p>
+            </Col>
+          </Row>
+        </Container>
       </>
     );
   }

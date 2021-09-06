@@ -34,10 +34,9 @@ const Header = (props) => {
     <>
       <Navbar
         collapseOnSelect
-        className="navbar py-3"
+        id="navbar"
+        className="py-3"
         expand="md"
-        bg="light"
-        variant="light"
         sticky="top"
       >
         <Container>
@@ -55,20 +54,16 @@ const Header = (props) => {
                 <Nav className="me-auto"></Nav>
 
                 <Nav>
-                  <Nav.Link className="nav-link" href="/donate">
+                  <Nav.Link id="nav-link" href="/donate">
                     <BiDonateHeart className="nav-icons" /> Donate
                   </Nav.Link>
-                  <Nav.Link className="nav-link" href="/store">
+                  <Nav.Link id="nav-link" href="/store">
                     <BiStore className="nav-icons" /> Store
                   </Nav.Link>
-                  <Nav.Link className="nav-link" href="/cart">
+                  <Nav.Link id="nav-link" href="/cart">
                     <BiCartAlt className="nav-icons" /> Cart ({cartItemsNum})
                   </Nav.Link>
-                  <Nav.Link
-                    className="nav-link"
-                    href="/"
-                    onClick={() => signOut()}
-                  >
+                  <Nav.Link id="nav-link" href="/" onClick={() => signOut()}>
                     <BiLogOut className="nav-icons" /> Logout
                   </Nav.Link>
                 </Nav>
@@ -78,7 +73,7 @@ const Header = (props) => {
 
           {!currentUser && (
             <Nav>
-              <Nav.Link className="nav-link-login nav-link" href="/login">
+              <Nav.Link id="nav-link" className="nav-link-login " href="/login">
                 <BiLogIn className="nav-icons" /> Login
               </Nav.Link>
             </Nav>
