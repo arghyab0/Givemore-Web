@@ -56,7 +56,7 @@ const SignUp = (props) => {
       <Container>
         <Row>
           <Col className="d-flex justify-content-center">
-            <Form className="form" onSubmit={handleFormSubit}>
+            <Form className="signup-form" onSubmit={handleFormSubit}>
               <h3 className="text-center">Sign-Up</h3>
               <br />
 

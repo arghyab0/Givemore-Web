@@ -15,6 +15,7 @@ import {
   BiLogOut,
   BiLogIn,
 } from "react-icons/bi";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 const mapState = (state) => ({
   currentUser: state.user.currentUser,
@@ -41,43 +42,47 @@ const Header = (props) => {
       >
         <Container>
           <Navbar.Brand href="/">Givemore</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto"></Nav>
 
-            {currentUser && (
-              <Nav>
-                <Nav.Link className="nav-link" href="/donate">
-                  <BiDonateHeart className="nav-icons" /> Donate
-                </Nav.Link>
-                <Nav.Link className="nav-link" href="/store">
-                  <BiStore className="nav-icons" /> Store
-                </Nav.Link>
-                <Nav.Link className="nav-link" href="/cart">
-                  <BiCartAlt className="nav-icons" /> Cart ({cartItemsNum})
-                </Nav.Link>
-                <Nav.Link
-                  className="nav-link"
-                  href="/"
-                  onClick={() => signOut()}
-                >
-                  <BiLogOut className="nav-icons" /> Logout
-                </Nav.Link>
-              </Nav>
-            )}
+          {currentUser && (
+            <>
+              <Navbar.Toggle
+                className="nav-dropdown"
+                aria-controls="responsive-navbar-nav"
+              >
+                <IoIosArrowDropdown className="nav-icons" />
+              </Navbar.Toggle>
+              <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto"></Nav>
 
-            {!currentUser && (
-              <Nav>
-                <Nav.Link className="nav-link" href="/register">
-                  Register
-                </Nav.Link>
-                <Nav.Link className="nav-link" href="/login">
-                  <BiLogIn className="nav-icons" />
-                  Login
-                </Nav.Link>
-              </Nav>
-            )}
-          </Navbar.Collapse>
+                <Nav>
+                  <Nav.Link className="nav-link" href="/donate">
+                    <BiDonateHeart className="nav-icons" /> Donate
+                  </Nav.Link>
+                  <Nav.Link className="nav-link" href="/store">
+                    <BiStore className="nav-icons" /> Store
+                  </Nav.Link>
+                  <Nav.Link className="nav-link" href="/cart">
+                    <BiCartAlt className="nav-icons" /> Cart ({cartItemsNum})
+                  </Nav.Link>
+                  <Nav.Link
+                    className="nav-link"
+                    href="/"
+                    onClick={() => signOut()}
+                  >
+                    <BiLogOut className="nav-icons" /> Logout
+                  </Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </>
+          )}
+
+          {!currentUser && (
+            <Nav>
+              <Nav.Link className="nav-link" href="/login">
+                <BiLogIn className="nav-icons" /> Login
+              </Nav.Link>
+            </Nav>
+          )}
         </Container>
       </Navbar>
     </>

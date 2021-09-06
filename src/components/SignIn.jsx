@@ -9,6 +9,7 @@ import { emailSignInStart, googleSignInStart } from "../redux/user.action";
 
 //stylesheets
 import "./signin-styles.scss";
+import { FcGoogle } from "react-icons/fc";
 
 const mapState = ({ user }) => ({
   currentUser: user.currentUser,
@@ -42,66 +43,72 @@ const SignIn = (props) => {
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <Form className="form" onSubmit={handleSubmit}>
-              <h3 className="text-center">Sign-In</h3>
-              <br />
-              <div className="text-center ">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  onClick={handleGoogleSignIn}
-                >
-                  Sign-in with Google
-                </Button>
-                <br />
-                or
-              </div>
-
-              <br />
-
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Email
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    name="email"
-                    value={email}
-                    type="email"
-                    placeholder="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Col>
-              </Form.Group>
-
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Password
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    name="password"
-                    value={password}
-                    type="password"
-                    placeholder="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Col>
-              </Form.Group>
-              <div className="text-center ">
-                <Button type="submit" variant="primary">
-                  Sign-in
-                </Button>
-              </div>
-              <br />
-              <Link to="/reset">Reset Password</Link>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+      <Form className="signin-form " onSubmit={handleSubmit}>
+        <Container className="justify-content-center">
+          <Row>
+            <h2 className="signin-header">Welcome back!</h2>
+          </Row>
+          <Row>
+            <p>We are so excited to see you again!</p>
+          </Row>
+          <br />
+          <div className="text-center ">
+            <Button
+              className="google-signin"
+              type="submit"
+              variant="primary"
+              onClick={handleGoogleSignIn}
+            >
+              <FcGoogle /> &ensp; Sign in with Google
+            </Button>
+            <br />
+            <br />
+            or
+            <br />
+            <br />
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column xs="4">
+                Email
+              </Form.Label>
+              <Col xs="8">
+                <Form.Control
+                  name="email"
+                  value={email}
+                  type="email"
+                  placeholder="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-1">
+              <Form.Label column xs="4">
+                Password
+              </Form.Label>
+              <Col xs="8">
+                <Form.Control
+                  name="password"
+                  value={password}
+                  type="password"
+                  placeholder="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Col>
+            </Form.Group>
+            <Link id="signin-reset" to="/reset">
+              Reset Password
+            </Link>
+            <br />
+            <br />
+            <Button className="email-signin" type="submit" variant="primary">
+              Login
+            </Button>
+          </div>
+          <br />
+          <Row style={{ display: "inline", color: "rgb(0,0,0, 0.7)" }}>
+            Need an account? <Link to="/register">Register</Link>
+          </Row>
+        </Container>
+      </Form>
     </>
   );
 };

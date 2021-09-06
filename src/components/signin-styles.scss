@@ -1,5 +1,28 @@
-.form {
-  border: 1px black solid;
-  padding: 2%;
-  margin: 2%;
+.signin-form {
+  padding: 4%;
+  margin: 8%;
+
+  .signin-header {
+    font-weight: 900;
+  }
+
+  .google-signin {
+    border: 2px #46760a solid;
+    border-radius: 12px;
+    color: #000;
+    font-weight: 500;
+    background-color: #fff;
+  }
+
+  .email-signin {
+    border: 2px #46760a solid;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  #signin-reset {
+    font-size: 12px;
+    float: right;
+  }
 }
