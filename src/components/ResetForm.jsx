@@ -44,45 +44,55 @@ const ResetForm = (props) => {
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <Form className="form" onSubmit={handleSubmit}>
-              <h3 className="text-center">Forgot Password</h3>
-              <br />
+      <Form className="reset-form" onSubmit={handleSubmit}>
+        <Container className="justify-content-center">
+          <Row>
+            <h1 className="reset-header">Forgot password</h1>
+          </Row>
+          <br />
+          <Row>
+            <p>
+              Enter the email associated with your Givemore account and we will
+              send an email with instructions to reset your password.
+            </p>
+          </Row>
+          <br />
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Email
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    name="email"
-                    value={email}
-                    type="email"
-                    placeholder="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Col>
-              </Form.Group>
+          <div className="text-center ">
+            <Form.Group as={Row} className="mb-5">
+              <Form.Label column xs="4">
+                Email
+              </Form.Label>
+              <Col xs="8">
+                <Form.Control
+                  name="email"
+                  value={email}
+                  type="email"
+                  placeholder="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Col>
+            </Form.Group>
 
-              {errors.length > 0 && (
-                <ul>
+            <Button className="reset-button" type="submit" variant="primary">
+              Send recovery email
+            </Button>
+
+            <br />
+            <br />
+            {errors.length > 0 && (
+              <>
+                <div className="reset-errors">
                   {errors.map((err, index) => {
                     return <li key={index}>{err}</li>;
                   })}
-                </ul>
-              )}
-
-              <div className="text-center ">
-                <Button type="submit" variant="primary">
-                  Send recovery email
-                </Button>
-              </div>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+                </div>
+                <br />
+              </>
+            )}
+          </div>
+        </Container>
+      </Form>
     </>
   );
 };

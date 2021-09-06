@@ -46,10 +46,7 @@ const SignIn = (props) => {
       <Form className="signin-form " onSubmit={handleSubmit}>
         <Container className="justify-content-center">
           <Row>
-            <h2 className="signin-header">Welcome back!</h2>
-          </Row>
-          <Row>
-            <p>We are so excited to see you again!</p>
+            <h1 className="signin-header">Welcome back!</h1>
           </Row>
           <br />
           <div className="text-center ">
@@ -95,7 +92,7 @@ const SignIn = (props) => {
               </Col>
             </Form.Group>
             <Link id="signin-reset" to="/reset">
-              Reset Password
+              Forgot Password?
             </Link>
             <br />
             <br />
@@ -105,7 +102,7 @@ const SignIn = (props) => {
           </div>
           <br />
           <Row style={{ display: "inline", color: "rgb(0,0,0, 0.7)" }}>
-            Need an account? <Link to="/register">Register</Link>
+            Need an account?<Link to="/register">Register</Link>
           </Row>
         </Container>
       </Form>

@@ -56,7 +56,7 @@ const SignUp = (props) => {
       <Form className="signup-form" onSubmit={handleFormSubit}>
         <Container className="justify-content-center">
           <Row>
-            <h2 className="signup-header">Join Givemore today</h2>
+            <h1 className="signup-header">Join Givemore today</h1>
           </Row>
           <br />
           <br />
@@ -128,13 +128,15 @@ const SignUp = (props) => {
             <br />
             <br />
             {errors.length > 0 && (
-              <div className="signup-errors">
-                {errors.map((err, index) => {
-                  return <li key={index}>{err}</li>;
-                })}
-              </div>
+              <>
+                <div className="signup-errors">
+                  {errors.map((err, index) => {
+                    return <li key={index}>{err}</li>;
+                  })}
+                </div>
+                <br />
+              </>
             )}
-            <br />
           </div>
 
           <Row>
