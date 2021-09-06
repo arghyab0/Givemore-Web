@@ -5,7 +5,7 @@ import "./home-styles.scss";
 const Home = () => {
   return (
     <>
-      <Container bsClass=".home-page">
+      <Container>
         <Row>
           <Col>
             <h1>Homepage</h1>

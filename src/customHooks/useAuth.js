@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 
-const mapState = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapState = (state) => ({
+  currentUser: state.user.currentUser,
 });
 
 const useAuth = (props) => {
