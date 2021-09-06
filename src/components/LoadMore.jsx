@@ -7,7 +7,9 @@ import "./loadmore-styles.scss";
 const LoadMore = (props) => {
   return (
     <>
-      <Button onClick={() => props.onLoadMore()}>Load more</Button>
+      <Button id="load-more-btn" onClick={() => props.onLoadMore()}>
+        Load more
+      </Button>
     </>
   );
 };

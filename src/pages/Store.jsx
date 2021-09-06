@@ -1,13 +1,20 @@
 //components
+import { Row, Col, Container } from "react-bootstrap";
 import ProductsColl from "../components/ProductsColl";
 
 //stylesheet
 import "./store-styles.scss";
 
-const Store = (props) => {
+const Store = () => {
   return (
     <>
-      <ProductsColl />
+      <Container>
+        <Row>
+          <Col>
+            <ProductsColl />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

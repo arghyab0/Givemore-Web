@@ -1,6 +1,6 @@
 //components
 import { useEffect } from "react";
-import { Row, Col, Container, Form } from "react-bootstrap";
+import { Row, Col, Container, Form, InputGroup } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import Product from "./Product";
 import LoadMore from "./LoadMore";
@@ -56,24 +56,28 @@ const ProductsColl = (props) => {
   return (
     <>
       <Container>
-        <Row className="mb-2">
-          <Col sm="3">
-            <h2>Browse products</h2>
+        <Row className="mb-5"></Row>
+        <Row className="mb-5">
+          <Col>
+            <h1 className="store-header">Browse listings</h1>
           </Col>
-          <Col sm="9">
-            <Col sm="2">
-              <Form.Control as="select" onChange={handleFilter}>
-                <option value="all">Show all</option>
-                <option value="cat1">Cat1</option>
-                <option value="cat2">Cat2</option>
-                <option value="cat3">Cat3</option>
-              </Form.Control>
-            </Col>
+          <Col xs="auto"></Col>
+          <Col xs="4" sm="2">
+            <Form.Control
+              className="category-selector"
+              as="select"
+              onChange={handleFilter}
+            >
+              <option value="all">Show all</option>
+              <option value="cat1">Cat1</option>
+              <option value="cat2">Cat2</option>
+              <option value="cat3">Cat3</option>
+            </Form.Control>
           </Col>
         </Row>
       </Container>
       <Container>
-        <Row md="2" lg="4" className="g-4">
+        <Row md="2" lg="4" className=" justify-content-space-evenly g-5">
           {data.map((item, index) => {
             const {
               productTitle,

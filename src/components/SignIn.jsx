@@ -48,11 +48,13 @@ const SignIn = (props) => {
           <Row>
             <h1 className="signin-header">Welcome back!</h1>
           </Row>
+          <Row>
+            <p>We are so excited to see you again!</p>
+          </Row>
           <br />
           <div className="text-center ">
             <Button
               className="google-signin"
-              type="submit"
               variant="primary"
               onClick={handleGoogleSignIn}
             >
