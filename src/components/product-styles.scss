@@ -1,0 +1,29 @@
+.product-card-img-container {
+  margin: 18px;
+}
+.product-card-img {
+  width: auto;
+  height: 24vh;
+}
+
+.product-card-title {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#product-card-cart {
+  border: 2px #46760a solid;
+  border-radius: 12px;
+  color: #000;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+#product-card-details {
+  border: 2px #46760a solid;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
+}

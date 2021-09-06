@@ -8,6 +8,8 @@ import { addProduct } from "../redux/cart.action";
 
 //stylesheet
 import "./product-styles.scss";
+import { BiHeart } from "react-icons/bi";
+import { TiTags } from "react-icons/ti";
 
 const Product = (product) => {
   const {
@@ -31,34 +33,57 @@ const Product = (product) => {
 
   return (
     <>
-      <Card style={{ width: "18rem" }}>
-        <Link to={`/product/${documentID}`}>
-          <Card.Img variant="top" src={productThumbnail} alt={productTitle} />
-        </Link>
-        <Card.Body>
-          <Card.Title>
-            <Link to={`/product/${documentID}`}>{productTitle}</Link>
-          </Card.Title>
-          <Card.Text>{productCategory}</Card.Text>
-          <Container>
-            <Row>
-              <Col>
-                <Link to={`/product/${documentID}`}>
-                  <Button variant="primary">Details</Button>
-                </Link>
-              </Col>
-              <Col>
-                <Button
-                  variant="primary"
-                  onClick={() => handleAddToCart(product)}
-                >
-                  Cart
-                </Button>
-              </Col>
-            </Row>
-          </Container>
-        </Card.Body>
-      </Card>
+      <Container>
+        <Row>
+          <Col>
+            <Card style={{ width: "18rem", borderRadius: "12px" }}>
+              <Link to={`/product/${documentID}`}>
+                <div className="product-card-img-container">
+                  <Card.Img
+                    className="product-card-img"
+                    variant="top"
+                    src={productThumbnail}
+                    alt={productTitle}
+                  />
+                </div>
+              </Link>
+              <Card.Body>
+                <Card.Title>
+                  <Link
+                    className="product-card-title"
+                    to={`/product/${documentID}`}
+                  >
+                    {productTitle}
+                  </Link>
+                </Card.Title>
+                <Card.Text>
+                  <TiTags /> {productCategory}
+                </Card.Text>
+                <Container>
+                  <Row className="justify-content-space-evenly">
+                    <Col>
+                      <Button
+                        id="product-card-cart"
+                        variant="primary"
+                        onClick={() => handleAddToCart(product)}
+                      >
+                        <BiHeart /> Cart
+                      </Button>
+                    </Col>
+                    <Col>
+                      <Link to={`/product/${documentID}`}>
+                        <Button id="product-card-details" variant="primary">
+                          Details
+                        </Button>
+                      </Link>
+                    </Col>
+                  </Row>
+                </Container>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

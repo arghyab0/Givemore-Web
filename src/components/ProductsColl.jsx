@@ -97,14 +97,19 @@ const ProductsColl = (props) => {
           })}
         </Row>
       </Container>
+
       {!isLastPage && (
-        <Container>
-          <Row className="justify-content-center">
-            <Col sm="2">
-              <LoadMore onLoadMore={handleLoadMore} />
-            </Col>
-          </Row>
-        </Container>
+        <>
+          <br />
+          <br />
+          <Container>
+            <Row className="justify-content-center text-center">
+              <Col sm="2">
+                <LoadMore onLoadMore={handleLoadMore} />
+              </Col>
+            </Row>
+          </Container>
+        </>
       )}
     </>
   );
