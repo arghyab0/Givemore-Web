@@ -1,4 +1,5 @@
 //components
+import { Row, Col, Container } from "react-bootstrap";
 import Checkout from "../components/Checkout";
 
 //stylesheets
@@ -9,8 +10,15 @@ import React from "react";
 const Cart = () => {
   return (
     <>
-      <h2>My cart</h2>
-      <Checkout />
+      <Container>
+        <Row>
+          <Col sm="2"></Col>
+          <Col sm="8">
+            <Checkout />
+          </Col>
+          <Col sm="2"></Col>
+        </Row>
+      </Container>
     </>
   );
 };
