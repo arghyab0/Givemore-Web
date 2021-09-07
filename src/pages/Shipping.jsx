@@ -63,115 +63,127 @@ const Shipping = () => {
 
   return (
     <>
-      <Container className="d-flex justify-content-center">
+      <Container>
         <Row>
-          <Col>
-            <Form onSubmit={handleFormSubit}>
-              <h3 className="text-center">Shipping</h3>
-              <br />
+          <Col sm="3"></Col>
+          <Col sm="6">
+            <Form id="shipping-form" onSubmit={handleFormSubit}>
+              <Container>
+                <Row>
+                  <h1 id="shipping-header">Checkout</h1>
+                </Row>
+                <Row>
+                  <p>Enter your shipping details.</p>
+                </Row>
+                <br />
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Name
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    required
-                    name="name"
-                    value={name}
-                    type="text"
-                    placeholder="Name"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </Col>
-              </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label column sm="4">
+                    Full name
+                  </Form.Label>
+                  <Col sm="8">
+                    <Form.Control
+                      required
+                      name="name"
+                      value={name}
+                      type="text"
+                      placeholder="recipient's name"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Col>
+                </Form.Group>
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Line 1
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    required
-                    name="line1"
-                    value={shippingAddr.line1}
-                    type="text"
-                    placeholder="name"
-                    onChange={handleShipping}
-                  />
-                </Col>
-              </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label column sm="4">
+                    Address (line 1)
+                  </Form.Label>
+                  <Col sm="8">
+                    <Form.Control
+                      required
+                      name="line1"
+                      value={shippingAddr.line1}
+                      type="text"
+                      placeholder="flat or house no, apartment"
+                      onChange={handleShipping}
+                    />
+                  </Col>
+                </Form.Group>
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Line 2
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    name="line2"
-                    value={shippingAddr.line2}
-                    type="text"
-                    placeholder="name"
-                    onChange={handleShipping}
-                  />
-                </Col>
-              </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label column sm="4">
+                    Address (line 2)
+                  </Form.Label>
+                  <Col sm="8">
+                    <Form.Control
+                      name="line2"
+                      value={shippingAddr.line2}
+                      type="text"
+                      placeholder="area, street, sector, village "
+                      onChange={handleShipping}
+                    />
+                  </Col>
+                </Form.Group>
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  City
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    required
-                    name="city"
-                    value={shippingAddr.city}
-                    type="text"
-                    placeholder="name"
-                    onChange={handleShipping}
-                  />
-                </Col>
-              </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label column sm="4">
+                    City
+                  </Form.Label>
+                  <Col sm="8">
+                    <Form.Control
+                      required
+                      name="city"
+                      value={shippingAddr.city}
+                      type="text"
+                      placeholder="city or town"
+                      onChange={handleShipping}
+                    />
+                  </Col>
+                </Form.Group>
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  State
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    required
-                    name="state"
-                    value={shippingAddr.state}
-                    type="text"
-                    placeholder="name"
-                    onChange={handleShipping}
-                  />
-                </Col>
-              </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label column sm="4">
+                    State
+                  </Form.Label>
+                  <Col sm="8">
+                    <Form.Control
+                      required
+                      name="state"
+                      value={shippingAddr.state}
+                      type="text"
+                      placeholder="state"
+                      onChange={handleShipping}
+                    />
+                  </Col>
+                </Form.Group>
 
-              <Form.Group as={Row} className="mb-3">
-                <Form.Label column sm="4">
-                  Pincode
-                </Form.Label>
-                <Col sm="8">
-                  <Form.Control
-                    required
-                    name="pincode"
-                    value={shippingAddr.pincode}
-                    type="text"
-                    placeholder="name"
-                    onChange={handleShipping}
-                  />
-                </Col>
-              </Form.Group>
+                <Form.Group as={Row} className="mb-3">
+                  <Form.Label column sm="4">
+                    Pincode
+                  </Form.Label>
+                  <Col sm="8">
+                    <Form.Control
+                      required
+                      name="pincode"
+                      value={shippingAddr.pincode}
+                      type="text"
+                      placeholder="6 digits [0-9] PIN code"
+                      onChange={handleShipping}
+                    />
+                  </Col>
+                </Form.Group>
 
-              <div className="text-center">
-                <Button type="submit" variant="primary">
-                  Sign-up with email
-                </Button>
-              </div>
+                <br />
+                <br />
+
+                <div className="text-center">
+                  <Button id="shipping-btn" type="submit" variant="primary">
+                    Place request
+                  </Button>
+                </div>
+              </Container>
             </Form>
           </Col>
+          <Col sm="3"></Col>
         </Row>
       </Container>
     </>
