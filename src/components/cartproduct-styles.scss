@@ -1,0 +1,43 @@
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+.cart-product-header {
+  font-weight: 700;
+  color: #000;
+}
+
+.cart-product-id {
+  color: rgba(#000000, 0.6);
+  font-size: 12px;
+}
+
+#checkout-quantity {
+  border: 2px #46760a solid;
+  border-radius: 12px;
+  color: #000;
+  font-weight: 500;
+  background-color: transparent;
+  width: 100%;
+}
+
+#checkout-delete {
+  border: 2px #c7522d solid;
+  background-color: #e5704b;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
+  width: 100%;
+  &:hover {
+    background-color: #eb8d70;
+    border: 2px #c7522d solid;
+  }
+}
+
+#checkout-icons {
+  font-size: 16px;
+  font-weight: 700;
+}

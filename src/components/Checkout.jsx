@@ -33,7 +33,7 @@ const Checkout = () => {
           <>
             {cartItems.map((item, index) => {
               return (
-                <Row className="mb-3 ">
+                <Row className="mb-5">
                   <CartProduct {...item} key={item.documentID} />
                 </Row>
               );

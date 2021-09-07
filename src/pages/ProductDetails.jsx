@@ -69,7 +69,7 @@ const ProductDetails = () => {
               </Row>
               <Row className="mb-5">
                 <p>
-                  <span className="details-sub">Listing ID:</span> &ensp;{" "}
+                  <span className="details-sub">Listing ID:</span> &ensp;
                   {productID}
                   <br />
                   <span className="details-sub">Category:</span> &ensp;
