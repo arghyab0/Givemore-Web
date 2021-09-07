@@ -42,8 +42,6 @@ const Donate = (props) => {
 
   return (
     <>
-      {/* {!isLastPage && <LoadMore onLoadMore={handleLoadMore} />} */}
-
       <Container>
         <Row>
           <Col sm="2"></Col>
@@ -137,6 +135,28 @@ const Donate = (props) => {
                   })}
               </Row>
             </Container>
+
+            {!isLastPage ? (
+              <>
+                <Container>
+                  <Row className="justify-content-center text-center">
+                    <Col sm="2">
+                      <LoadMore onLoadMore={handleLoadMore} />
+                    </Col>
+                  </Row>
+                </Container>
+              </>
+            ) : (
+              <>
+                <Container>
+                  <Row className="justify-content-center text-center">
+                    <Col sm="2">
+                      <p className="results-end">End of results</p>
+                    </Col>
+                  </Row>
+                </Container>
+              </>
+            )}
           </Col>
           <Col sm="2"></Col>
         </Row>

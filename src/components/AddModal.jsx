@@ -45,76 +45,67 @@ const AddModal = (props) => {
 
   return (
     <>
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
+      <Modal {...props} size="lg" centered>
+        <Modal.Header style={{ border: "none" }} closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Add new product
+            List new donation
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
           <Form onSubmit={handleSubmit}>
-            <Form.Group as={Row} className="mb-2">
-              <Col sm="2"></Col>
-              <Form.Label column sm="2">
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column xs="5">
                 Product title
               </Form.Label>
-              <Col sm="6">
+              <Col xs="6">
                 <Form.Control
                   name="productTitle"
                   value={productTitle}
                   type="text"
-                  placeholder="title"
+                  placeholder="listing title"
                   onChange={(e) => setProductTitle(e.target.value)}
                 />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-2">
-              <Col sm="2"></Col>
-              <Form.Label column sm="2">
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column xs="5">
                 Product image URL
               </Form.Label>
-              <Col sm="6">
+              <Col xs="6">
                 <Form.Control
                   name="productThumbnail"
                   value={productThumbnail}
                   type="text"
-                  placeholder="image URL"
+                  placeholder="thumbnail image URL"
                   onChange={(e) => setProductThumbnail(e.target.value)}
                 />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-2">
-              <Col sm="2"></Col>
-              <Form.Label column sm="2">
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label column xs="5">
                 Product description
               </Form.Label>
-              <Col sm="6">
+              <Col xs="6">
                 <Form.Control
                   as="textarea"
-                  rows={6}
+                  rows={5}
                   name="productDesc"
                   value={productDesc}
                   type="text"
-                  placeholder="description"
+                  placeholder="listing description"
                   onChange={(e) => setProductDesc(e.target.value)}
                 />
               </Col>
             </Form.Group>
 
-            <InputGroup as={Row} className="mb-2">
-              <Col sm="3"></Col>
-              <Col sm="2">
+            <InputGroup as={Row} className="mb-3 text-center">
+              <Col xs="6">
                 <DropdownButton
                   variant="outline-secondary"
                   title="Category"
-                  id="input-group-dropdown-1"
+                  id="category-dropdown"
                 >
                   <Dropdown.Item
                     as="option"
@@ -139,14 +130,20 @@ const AddModal = (props) => {
                   </Dropdown.Item>
                 </DropdownButton>
               </Col>
-              <Col sm="4">
+              <Col xs="5">
                 <FormControl value={productCategory} readOnly />
               </Col>
             </InputGroup>
 
             <div className="text-center">
-              <Button type="submit" onClick={props.onHide} variant="primary">
-                List new product
+              <br />
+              <Button
+                id="add-listing"
+                type="submit"
+                onClick={props.onHide}
+                variant="primary"
+              >
+                List donation
               </Button>
             </div>
           </Form>
