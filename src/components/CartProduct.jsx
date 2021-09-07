@@ -40,12 +40,12 @@ const CartProduct = (product) => {
               <Image
                 src={productThumbnail}
                 alt={productTitle}
-                style={{ borderRadius: "16px" }}
+                style={{ borderRadius: "14px" }}
                 fluid
               />
             </Link>
           </Col>
-          <Col>
+          <Col style={{ padding: "0px 30px" }}>
             <Row className="mb-2">
               <Link to={`/store/${documentID}`}>
                 <h3 className="cart-product-header">{productTitle}</h3>

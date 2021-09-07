@@ -1,0 +1,41 @@
+#donate-container {
+  padding: 6% 4%;
+
+  #donate-header {
+    font-weight: 900;
+  }
+
+  #donate-product-header {
+    font-weight: 600;
+    color: #000;
+  }
+
+  #donate-product-id {
+    color: rgba(#000000, 0.6);
+    font-size: 12px;
+  }
+
+  #add-donation {
+    border: 2px #46760a solid;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  #donate-unlist {
+    border: 2px #c7522d solid;
+    background-color: #e5704b;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 500;
+    &:hover {
+      background-color: #eb8d70;
+      border: 2px #c7522d solid;
+    }
+  }
+
+  #donate-icons {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
