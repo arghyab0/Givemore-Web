@@ -107,7 +107,7 @@ const ProductsColl = (props) => {
         </Row>
       </Container>
 
-      {!isLastPage && (
+      {!isLastPage ? (
         <>
           <br />
           <br />
@@ -115,6 +115,18 @@ const ProductsColl = (props) => {
             <Row className="justify-content-center text-center">
               <Col sm="2">
                 <LoadMore onLoadMore={handleLoadMore} />
+              </Col>
+            </Row>
+          </Container>
+        </>
+      ) : (
+        <>
+          <br />
+          <br />
+          <Container>
+            <Row className="justify-content-center text-center">
+              <Col sm="2">
+                <p className="results-end">End of results</p>
               </Col>
             </Row>
           </Container>

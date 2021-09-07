@@ -50,16 +50,16 @@ const ProductDetails = () => {
           </Col>
         </Row>
         <Row>
-          <Col md="6">
+          <Col md="6" style={{ padding: "0px 30px 0px" }}>
             <Image
               src={productThumbnail}
               alt={productTitle}
               style={{ borderRadius: "16px" }}
               fluid
             />
+            <Row className="mb-5"></Row>
           </Col>
-          <Col></Col>
-          <Col md="5">
+          <Col md="6" style={{ padding: "0px 20px 0px" }}>
             <Container>
               <Row className="mb-5">
                 <h2 className="details-title">{productTitle}</h2>
