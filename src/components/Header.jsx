@@ -16,6 +16,7 @@ import {
   BiLogIn,
 } from "react-icons/bi";
 import { IoIosArrowDropdown } from "react-icons/io";
+import Logo from "./../assets/brand-logo.png";
 
 const mapState = (state) => ({
   currentUser: state.user.currentUser,
@@ -40,7 +41,17 @@ const Header = (props) => {
         sticky="top"
       >
         <Container>
-          <Navbar.Brand href="/">Givemore</Navbar.Brand>
+          <Navbar.Brand href="/" style={{ margin: "-17px -12px -31px" }}>
+            <img
+              alt="brand logo"
+              src={Logo}
+              width="80px"
+              height="80px"
+              className="d-inline-block"
+              style={{ margin: "0px -16px 0px -4px" }}
+            />
+            <span id="brand">Givemore</span>
+          </Navbar.Brand>
 
           {currentUser && (
             <>
