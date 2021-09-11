@@ -35,9 +35,13 @@ const Home = () => {
               supplies
             </h1>
             <div className={`${mobileClass}`}>
-              <Button id="join-btn">Join Givemore!</Button>
+              <Button id="join-btn" href="/register">
+                Join Givemore!
+              </Button>
               &ensp; &ensp;
-              <Button id="listing-btn">Browse listings</Button>
+              <Button id="listing-btn" href="/store">
+                Browse listings
+              </Button>
             </div>
           </Col>
           <Col sm="5">
