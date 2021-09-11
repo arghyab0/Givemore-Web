@@ -8,6 +8,8 @@ import { selectCartItemsCount } from "../redux/cart.selectors";
 
 //stylesheet
 import "./header-styles.scss";
+
+//assets
 import {
   BiDonateHeart,
   BiStore,
@@ -50,7 +52,7 @@ const Header = (props) => {
               className="d-inline-block"
               style={{ margin: "0px -16px 0px -4px" }}
             />
-            <span id="brand">Givemore</span>
+            {/* <span id="brand">Givemore</span> */}
           </Navbar.Brand>
 
           {currentUser && (

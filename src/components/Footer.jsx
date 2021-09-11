@@ -7,12 +7,14 @@ import "./footer-styles.scss";
 const Footer = () => {
   return (
     <>
-      <div style={{ height: "5vh", width: "100%" }}></div>
-      {/* <Navbar fixed="bottom" bg="light" className="footer">
-        <Container>
-          <Navbar.Text>Copyright info blah blah</Navbar.Text>
+      <Navbar bg="light" className="footer">
+        <Container className="justify-content-center">
+          <Navbar.Text>
+            Made by <a href="https://arghyabiswas.me/">Arghya Biswas</a>.{" "}
+            <a href="https://github.com/arghyab0/givemore-web">Github repo</a>.
+          </Navbar.Text>
         </Container>
-      </Navbar> */}
+      </Navbar>
     </>
   );
 };

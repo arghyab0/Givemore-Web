@@ -1,0 +1,38 @@
+.home-img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.landing-text {
+  color: #000;
+  font-weight: 600;
+}
+
+#listing-btn {
+  font-size: 17px;
+  border: 2px #46760a solid;
+  border-radius: 12px;
+  color: #000;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+#join-btn {
+  font-size: 17px;
+  border: 2px #46760a solid;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+#banner {
+  background-image: url("./../assets/landing-background.svg");
+  padding: 8vh 0;
+}
+
+li {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 1%;
+}
