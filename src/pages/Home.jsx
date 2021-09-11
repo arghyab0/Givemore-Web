@@ -1,6 +1,7 @@
 //components
 import { useState, useEffect } from "react";
 import { Col, Container, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 //stylesheets
@@ -35,13 +36,13 @@ const Home = () => {
               supplies
             </h1>
             <div className={`${mobileClass}`}>
-              <Button id="join-btn" href="/register">
-                Join Givemore!
-              </Button>
+              <Link to="/register">
+                <Button id="join-btn">Join Givemore!</Button>
+              </Link>
               &ensp; &ensp;
-              <Button id="listing-btn" href="/store">
-                Browse listings
-              </Button>
+              <Link to="/store">
+                <Button id="listing-btn">Browse listings</Button>
+              </Link>
             </div>
           </Col>
           <Col sm="5">
