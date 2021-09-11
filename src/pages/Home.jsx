@@ -1,8 +1,9 @@
 //components
 import { useState, useEffect } from "react";
+import { Col, Container, Row, Button } from "react-bootstrap";
+import Footer from "../components/Footer";
 
 //stylesheets
-import { Col, Container, Row, Button } from "react-bootstrap";
 import "./home-styles.scss";
 
 //assets
@@ -96,6 +97,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 };

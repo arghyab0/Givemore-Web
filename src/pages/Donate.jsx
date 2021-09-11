@@ -15,7 +15,7 @@ import {
 //stylesheets
 import "./donate-styles.scss";
 import { BiPlus } from "react-icons/bi";
-import { TiCancel } from "react-icons/ti";
+import { TiCancel, TiTag } from "react-icons/ti";
 
 const mapState = ({ user, productsData }) => ({
   currentUser: user.currentUser,
@@ -111,7 +111,9 @@ const Donate = (props) => {
                                   </p>
                                 </Row>
                                 <Row>
-                                  <p>{productCategory}</p>
+                                  <p>
+                                    <TiTag /> {productCategory}
+                                  </p>
                                 </Row>
                                 <Row className="text-center">
                                   <Col>

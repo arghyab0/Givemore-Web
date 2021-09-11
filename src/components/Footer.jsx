@@ -10,8 +10,7 @@ const Footer = () => {
       <Navbar bg="light" className="footer">
         <Container className="justify-content-center">
           <Navbar.Text>
-            Made by <a href="https://arghyabiswas.me/">Arghya Biswas</a>.{" "}
-            <a href="https://github.com/arghyab0/givemore-web">Github repo</a>.
+            Made by <a href="https://arghyabiswas.me/">Arghya Biswas</a>
           </Navbar.Text>
         </Container>
       </Navbar>

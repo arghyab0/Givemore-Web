@@ -9,7 +9,7 @@ import { addProduct } from "../redux/cart.action";
 //stylesheet
 import "./product-styles.scss";
 import { BiCartAlt } from "react-icons/bi";
-import { TiTags } from "react-icons/ti";
+import { TiTag } from "react-icons/ti";
 
 const Product = (product) => {
   const { productTitle, productThumbnail, productCategory, documentID } =
@@ -52,7 +52,7 @@ const Product = (product) => {
                   </Link>
                 </Card.Title>
                 <Card.Text>
-                  <TiTags /> {productCategory}
+                  <TiTag /> {productCategory}
                 </Card.Text>
                 <Container>
                   <Row className="justify-content-space-evenly">

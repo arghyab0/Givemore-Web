@@ -78,7 +78,6 @@ const App = (props) => {
           />
         </Switch>
       </div>
-      <Footer />
     </div>
   );
 };
