@@ -78,9 +78,10 @@ const ProductsColl = (props) => {
               onChange={handleFilter}
             >
               <option value="all">Show all</option>
-              <option value="cat1">Cat1</option>
-              <option value="cat2">Cat2</option>
-              <option value="cat3">Cat3</option>
+              <option value="food">Food</option>
+              <option value="medicine">Medicine</option>
+              <option value="clothes">Clothes</option>
+              <option value="books">Books</option>
             </Form.Control>
           </Col>
         </Row>

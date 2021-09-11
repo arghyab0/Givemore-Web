@@ -109,28 +109,28 @@ const AddModal = (props) => {
                 >
                   <Dropdown.Item
                     as="option"
-                    value="Food"
+                    value="food"
                     onClick={(e) => setProductCategory(e.target.value)}
                   >
                     Food
                   </Dropdown.Item>
                   <Dropdown.Item
                     as="option"
-                    value="Medicine"
+                    value="medicine"
                     onClick={(e) => setProductCategory(e.target.value)}
                   >
                     Medicine
                   </Dropdown.Item>
                   <Dropdown.Item
                     as="option"
-                    value="Clothes"
+                    value="clothes"
                     onClick={(e) => setProductCategory(e.target.value)}
                   >
                     Clothes
                   </Dropdown.Item>
                   <Dropdown.Item
                     as="option"
-                    value="Books"
+                    value="books"
                     onClick={(e) => setProductCategory(e.target.value)}
                   >
                     Books
